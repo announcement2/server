@@ -35,13 +35,14 @@ def add_client():
 
 @app.route('/make_announcement', methods=['POST'])
 def make_announcement():
+    name_id = request.form['name_id']
     name = request.form['name']
     try:
-        client = clients.clients[name]
+        client = clients.clients[name_id]
     except:
         return jsonify({
             'code': 400,
-            'message': "Client did not return a valid name."
+            'message': "Client did not return a valid name id."
         }), 400
 
     clients.broadcast_to_clients('POST', '/announcement', data={
