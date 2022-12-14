@@ -9,7 +9,7 @@ def handle400(e):
     return jsonify({
         'code': 400,
         'message': 'Generic 400 Message, this could mean that something has gone wrong in the client program that has to do with sending an HTTP request. This message does not have anything to do with the function of the announcement system.'
-    })
+    }, 400)
 
 @app.route('/ping')
 def ping():
