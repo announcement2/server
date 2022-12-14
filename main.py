@@ -5,7 +5,7 @@ app = Flask(__name__)
 clients = client_mgmt.ClientMGMT()
 
 @app.errorhandler(400)
-def handle400():
+def handle400(e):
     return jsonify({
         'code': 400,
         'message': 'Generic 400 Message, this could mean that something has gone wrong in the client program that has to do with sending an HTTP request. This message does not have anything to do with the function of the announcement system.'
